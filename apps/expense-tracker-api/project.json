@@ -1,0 +1,26 @@
+{
+  "name": "expense-tracker-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/expense-tracker-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "expense-tracker-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "expense-tracker-api:build:development"
+        },
+        "production": {
+          "buildTarget": "expense-tracker-api:build:production"
+        }
+      }
+    }
+  }
+}
